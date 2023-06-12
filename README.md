@@ -1,8 +1,10 @@
-# GDP Forecasting for Albania using time series and machine learning.
+# Forecastrr-ML 📈
 
-This repository contains code for GDP forecasting of Albania using various time series models. The project utilizes Python and libraries such as Pandas, NumPy, Matplotlib, statsmodels, and pandas_datareader.
+Forecastrr-ML is a Python project that forecasts Albania's GDP using different time series models, including ARIMA, SES, and SARIMA. The project fetches real-time GDP data, decomposes the time series, and fits various models to forecast the next five years. The best model is determined by comparing the forecast errors (MAE, MSE, RMSE) of each model.
 
-## Dependencies
+![GDP Forecast](gdp_al_1980-2026_sarima.png)
+
+## 📚 Dependencies
 
 - pandas
 - numpy
@@ -10,31 +12,47 @@ This repository contains code for GDP forecasting of Albania using various time 
 - statsmodels
 - pandas_datareader
 
-You can install these packages using `pip`:
+## 📦 Installation
 
-## Overview
+1. Clone the repository:
 
-The code in this repository performs the following tasks:
+```
+git clone https://github.com/dalist1/forecastrr-ml.git
+```
 
-1. Fetches real-time GDP data for Albania from 1980-2022 using the World Bank API.
-2. Interpolates missing values and decomposes the time series into its components: trend, seasonality, and residual.
-3. Forecasts GDP using different time series models: ARIMA, Simple Exponential Smoothing (SES), and Seasonal Autoregressive Integrated Moving Average (SARIMA).
-4. Compares the forecast errors (MAE, MSE, and RMSE) of each model to determine the best one for GDP forecasting.
+2. Install the required packages:
 
-## Usage
+```
+pip install -r requirements.txt
+```
 
-To run the code, simply execute the Python script:
+3. Run the script:
 
+```
+python forecastrr.py
+```
 
-This will generate plots of the original data, the decomposed time series, and the forecasts for each model. The best model for GDP forecasting, along with its corresponding MAE, MSE, and RMSE values, will be printed to the console.
+## 📈 Models
 
-## Results
+- **ARIMA** (Autoregressive Integrated Moving Average): A linear time series model that combines autoregression, differencing, and moving average components to make predictions. [Source 0](https://raw.githubusercontent.com/dalist1/forecastrr-ml/master/forecastrr.py)
 
-The generated plots will be saved as image files in the current directory:
+- **SES** (Simple Exponential Smoothing): A time series forecasting method that uses weighted averages of past observations to make predictions. [Source 0](https://raw.githubusercontent.com/dalist1/forecastrr-ml/master/forecastrr.py)
 
-- gdp_al_1980-2021.png: Decomposed time series components
-- gdp_al_1980-2026_ses.png: GDP forecast using SES
-- gdp_al_1980-2026_arima.png: GDP forecast using ARIMA
-- gdp_al_1980-2026_sarima.png: GDP forecast using SARIMA
+- **SARIMA** (Seasonal Autoregressive Integrated Moving Average): An extension of ARIMA that takes seasonality into account, making it suitable for forecasting data with seasonal patterns. [Source 0](https://raw.githubusercontent.com/dalist1/forecastrr-ml/master/forecastrr.py)
 
-The best model for GDP forecasting will be determined based on the lowest MAE, MSE, and RMSE values.
+## 📊 Results
+
+The script generates forecasts for the next five years using each of the models. The best model is determined by comparing the forecast errors (MAE, MSE, RMSE) of each model. An example output can be seen below:
+
+```
+The best model for GDP forecasting is: SARIMA
+MAE: 478414004.52, MSE: 260072867367300608.00, RMSE: 509973398.69
+```
+
+## 🖼️ Plots
+
+The script generates plots for the original GDP data, the decomposed time series (trend, seasonal, residual), and the forecasts for each model. The plots are saved as PNG files in the project directory. [Source 0](https://raw.githubusercontent.com/dalist1/forecastrr-ml/master/forecastrr.py)
+
+## 📝 License
+
+This project is licensed under the MIT License.
